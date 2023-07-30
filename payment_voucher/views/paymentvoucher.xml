@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <record id="action_paymentvoucher_register" model="ir.actions.act_window">
+    <field name="name">Create New Payment Voucher</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">haus.paymentvoucher</field>
+    <field name="view_mode">kanban,tree,form</field>
+    <field name="context">{}</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Create new Payment Voucher
+      </p>
+    </field>
+  </record>
+
+
+  <record id="view_paymentvoucher_form" model="ir.ui.view">
+    <field name="name">haus.paymentvoucher.form</field>
+    <field name="model">haus.paymentvoucher</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group class="row">
+            <group class="col">
+              <field name="no_voucher" string="No" />
+              <field name="date" string="Date" />
+              <field name="due_date" string="Due Date" />
+              <field name="bankacc" string="bankacc" />
+              <field name="bankacc_holder" string="bankacc_holder" />
+              <field name="bank_name" string="bank_name" />
+            </group>
+            <group class="col">
+              <field name="name" string="Paid To" />
+              <field name="requested" string="Requested By" />
+              <field name="deptcode" string="Dept. Code" />
+              <field name="amount" string="Amount" />
+              <field name="amount_alphabet" string="amount_alphabet" />
+              <field name="purpose" string="purpose" />
+              <field name="payment" string="Payment" widget="radio" />
+            </group>
+          </group>
+
+          <notebook>
+            <page string="Untuk Pembayaran">
+              <group>
+                <field name="payment_for" string="Pembayaran Untuk" />
+                <field name="receipt_no" string="Nota" />
+                <field name="receipt" string="Payment Confirmation Receipt" widget="radio" />
+              </group>
+            </page>
+          </notebook>
+
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_paymentvoucher_tree" model="ir.ui.view">
+    <field name="name">haus.paymentvoucher.tree</field>
+    <field name="model">haus.paymentvoucher</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name" string="Paid To" />
+        <field name="requested" string="Requested By" />
+      </tree>
+    </field>
+  </record>
+
+</odoo>

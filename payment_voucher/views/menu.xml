@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <menuitem
+    id="haus_root"
+    name="Haus Payment Voucher"
+    web_icon="payment_voucher,static/description/icon.png"
+    sequence="0"
+  />
+
+  <menuitem
+    id="haus_paymentvoucher_master"
+    name="Payment Voucher"
+    parent="haus_root"
+    action="action_paymentvoucher_register"
+    sequence="1"
+  />
+
+</odoo>
