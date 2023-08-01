@@ -14,13 +14,19 @@
     </field>
   </record>
 
-
+<!-- FORM VIEW -->
   <record id="view_paymentvoucher_form" model="ir.ui.view">
     <field name="name">haus.paymentvoucher.form</field>
     <field name="model">haus.paymentvoucher</field>
     <field name="arch" type="xml">
       <form>
         <sheet>
+          <h1>
+            PT. Inspirasi Bisnis Nusantara
+          </h1>
+          <h2 class="text-center">
+            Payment Voucher
+          </h2>
           <group class="row">
             <group class="col">
               <field name="no_voucher" string="No" />

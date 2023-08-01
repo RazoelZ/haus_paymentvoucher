@@ -1,6 +1,7 @@
 from odoo import api, fields, models, _
 from email.policy import default
 from datetime import datetime
+from odoo.exceptions import ValidationError
 
 
 class HausPaymentVoucher(models.Model):
@@ -15,6 +16,13 @@ class HausPaymentVoucher(models.Model):
     bankacc = fields.Char(String="Bank Account")
     bankacc_holder = fields.Char(String="Bank Account Holder")
     bank_name = fields.Char(String="Bank Name")
+
+    @api.constrains('date', 'due_date')
+    def _check_end_date_greater_than_start_date(self):
+        for record in self:
+            if record.due_date < record.date:
+                raise ValidationError("Due Date cannot be earlier than Current Date!")
+
 
     # Field Bawah
     name = fields.Char(String="Name")
