@@ -21,21 +21,36 @@
     <field name="arch" type="xml">
       <form>
         <sheet>
-          <h1>
-            PT. Inspirasi Bisnis Nusantara
-          </h1>
-          <h2 class="text-center">
-            Payment Voucher
-          </h2>
-          <group class="row">
-            <group class="col">
+        <!-- FIRST ROW -->
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <h1 class="w-100">PT. Inspirasi Bisnis Nusantara</h1>
+                <img src="https://haus.co.id/img/images/home/Logo%20haus%20Hitam%20Panjang.png"
+                width="140"
+                height="70"/>
+              </div>
+              <group class="col">
+                <field name="no_voucher" string="No" />
+                <field name="date" string="Date" />
+                <field name="due_date" string="Due Date" />
+                <field name="bankacc" string="bankacc" />
+                <field name="bankacc_holder" string="bankacc_holder" />
+                <field name="bank_name" string="bank_name" />
+              </group>
+            </div>
+          </div>
+          <!-- FIRST ROW -->
+          <h2 class="text-center">Payment Voucher</h2>
+          <!-- <group class="row"> -->
+            <!-- <group class="col">
               <field name="no_voucher" string="No" />
               <field name="date" string="Date" />
               <field name="due_date" string="Due Date" />
               <field name="bankacc" string="bankacc" />
               <field name="bankacc_holder" string="bankacc_holder" />
               <field name="bank_name" string="bank_name" />
-            </group>
+            </group> -->
             <group class="col">
               <field name="name" string="Paid To" />
               <field name="requested" string="Requested By" />
@@ -45,7 +60,7 @@
               <field name="purpose" string="purpose" />
               <field name="payment" string="Payment" widget="radio" />
             </group>
-          </group>
+          <!-- </group> -->
 
           <notebook>
             <page string="Untuk Pembayaran">
