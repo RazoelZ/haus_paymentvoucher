@@ -5,7 +5,7 @@
     <field name="name">Create New Payment Voucher</field>
     <field name="type">ir.actions.act_window</field>
     <field name="res_model">haus.paymentvoucher</field>
-    <field name="view_mode">kanban,tree,form</field>
+    <field name="view_mode">tree,form</field>
     <field name="context">{}</field>
     <field name="help" type="html">
       <p class="o_view_nocontent_smiling_face">
@@ -14,60 +14,64 @@
     </field>
   </record>
 
-<!-- FORM VIEW -->
+  <!-- FORM VIEW -->
   <record id="view_paymentvoucher_form" model="ir.ui.view">
     <field name="name">haus.paymentvoucher.form</field>
     <field name="model">haus.paymentvoucher</field>
     <field name="arch" type="xml">
       <form>
         <sheet>
-        <!-- FIRST ROW -->
+          <header>
+            <field name="approved_status" widget="statusbar" nolabel="1"></field>
+          </header>
+          <!-- FIRST ROW -->
           <div class="container">
             <div class="row">
               <div class="col">
                 <h1 class="w-100">PT. Inspirasi Bisnis Nusantara</h1>
                 <img src="https://haus.co.id/img/images/home/Logo%20haus%20Hitam%20Panjang.png"
-                width="140"
-                height="70"/>
+                  width="140"
+                  height="70" />
               </div>
               <group class="col">
                 <field name="no_voucher" string="No" />
-                <field name="date" string="Date" />
-                <field name="due_date" string="Due Date" />
-                <field name="bankacc" string="bankacc" />
-                <field name="bankacc_holder" string="bankacc_holder" />
-                <field name="bank_name" string="bank_name" />
+                <field name="date" string="DATE" />
+                <field name="due_date" string="DUE DATE" />
+                <field name="bankacc" string="Bank ACC NO." />
+                <field name="bankacc_holder" string="BANK ACC HOLDER." />
+                <field name="bank_name" string="BANK NAME." />
               </group>
             </div>
           </div>
           <!-- FIRST ROW -->
           <h2 class="text-center">Payment Voucher</h2>
-          <!-- <group class="row"> -->
-            <!-- <group class="col">
-              <field name="no_voucher" string="No" />
-              <field name="date" string="Date" />
-              <field name="due_date" string="Due Date" />
-              <field name="bankacc" string="bankacc" />
-              <field name="bankacc_holder" string="bankacc_holder" />
-              <field name="bank_name" string="bank_name" />
-            </group> -->
-            <group class="col">
-              <field name="name" string="Paid To" />
-              <field name="requested" string="Requested By" />
-              <field name="deptcode" string="Dept. Code" />
-              <field name="amount" string="Amount" />
-              <field name="amount_alphabet" string="amount_alphabet" />
-              <field name="purpose" string="purpose" />
-              <field name="payment" string="Payment" widget="radio" />
-            </group>
+          <group class="col">
+            <field name="name" string="PAID TO" />
+            <field name="requested" string="REQUESTED BY" />
+            <field name="deptcode" string="DEPT. CODE" />
+            <field name="amount" string="AMOUNT" />
+            <field name="amount_alphabet" string="AMOUNT ALPHABET" />
+            <field name="purpose" string="UNTUK PEMBAYARAN" />
+            <field name="payment" string="PAYMENT" widget="radio" />
+          </group>
           <!-- </group> -->
 
           <notebook>
-            <page string="Untuk Pembayaran">
+            <page string="UNTUK PEMBAYARAN">
               <group>
-                <field name="payment_for" string="Pembayaran Untuk" />
-                <field name="receipt_no" string="Nota" />
-                <field name="receipt" string="Payment Confirmation Receipt" widget="radio" />
+                <field name="payment_for" string="PAYMENT FOR" />
+                <field name="receipt_no" string="NOTA" />
+                <field name="receipt" string="PAYMENT CONFIRMATION RECEIPT" widget="radio" />
+              </group>
+            </page>
+            <page string="TANDA TANGAN APPLICATION SUPPORT MANAGER">
+              <group>
+                <field name="sign_apm" string="APPLICATION SUPPORT MANAGER"></field>
+              </group>
+            </page>
+            <page string="TANDA TANGAN FINANCIAL DEPARTMENT">
+              <group>
+                <field name="sign_fd" string="FINANCIAL DEPARTMENT"></field>
               </group>
             </page>
           </notebook>
