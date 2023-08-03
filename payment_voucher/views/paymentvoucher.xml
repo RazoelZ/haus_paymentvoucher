@@ -21,53 +21,73 @@
     <field name="arch" type="xml">
       <form>
         <sheet>
+        <header>
+        <field name="approved_status" widget="statusbar" nolabel="1"></field>
+        </header>
         <!-- FIRST ROW -->
           <div class="container">
             <div class="row">
               <div class="col">
-                <h1 class="w-100">PT. Inspirasi Bisnis Nusantara</h1>
+                <h1 class="w-100">PT. INSPIRASI BISNIS NUSANTARA</h1>
                 <img src="https://haus.co.id/img/images/home/Logo%20haus%20Hitam%20Panjang.png"
                 width="140"
                 height="70"/>
               </div>
               <group class="col">
-                <field name="no_voucher" string="No" />
-                <field name="date" string="Date" />
-                <field name="due_date" string="Due Date" />
-                <field name="bankacc" string="bankacc" />
-                <field name="bankacc_holder" string="bankacc_holder" />
-                <field name="bank_name" string="bank_name" />
+                <field name="no_voucher" string="NO" />
+                <field name="date" string="DATE" />
+                <field name="due_date" string="DUE DATE" />
+                <field name="bankacc" string="BANK ACC NO" />
+                <field name="bankacc_holder" string="BANK ACC HOLDER" />
+                <field name="bank_name" string="BANK NAME" />
               </group>
             </div>
           </div>
           <!-- FIRST ROW -->
-          <h2 class="text-center">Payment Voucher</h2>
-          <!-- <group class="row"> -->
-            <!-- <group class="col">
-              <field name="no_voucher" string="No" />
-              <field name="date" string="Date" />
-              <field name="due_date" string="Due Date" />
-              <field name="bankacc" string="bankacc" />
-              <field name="bankacc_holder" string="bankacc_holder" />
-              <field name="bank_name" string="bank_name" />
-            </group> -->
-            <group class="col">
-              <field name="name" string="Paid To" />
-              <field name="requested" string="Requested By" />
-              <field name="deptcode" string="Dept. Code" />
-              <field name="amount" string="Amount" />
-              <field name="amount_alphabet" string="amount_alphabet" />
-              <field name="purpose" string="purpose" />
-              <field name="payment" string="Payment" widget="radio" />
-            </group>
-          <!-- </group> -->
-
-          <notebook>
-            <page string="Untuk Pembayaran">
+          <h2 class="text-center">PAYMENT VOUCHER</h2>
+            <group>
               <group>
-                <field name="payment_for" string="Pembayaran Untuk" />
+                <field name="name" string="PAID TO" />
+                <field name="deptcode" string="DEPT. CODE" />
+              </group>
+              <group>
+                <field name="amount" string="AMOUNT" />
+                <field name="amount_alphabet" string="WRITE OUT" />
+              </group>
+            </group>
+            <group>
+              <group>
+                <field name="payment_for" string="PAYMENT FOR" />
+                <field name="payment" string="PAYMENT" widget="radio" />
+              </group>
+              <group>
+                <field name="receipt" string="Payment Confirmation Receipt"/>
                 <field name="receipt_no" string="Nota" />
-                <field name="receipt" string="Payment Confirmation Receipt" widget="radio" />
+              </group>
+            </group>
+          <notebook>
+            <page string="Requested By">
+              <group>
+                <field name="requested_name"/>
+                <field name="requested_signature" string="Signature"/>
+              </group>
+            </page>
+            <page string="Approved By">
+              <group>
+                <field name="approved_name"/>
+                <field name="approved_signature" string="Signature"/>
+              </group>
+            </page>
+            <page string="Paid By">
+              <group>
+                <field name="paid_name"/>
+                <field name="paid_signature" string="Signature"/>
+              </group>
+            </page>
+            <page string="Received By">
+              <group>
+                <field name="received_name"/>
+                <field name="received_signature" string="Signature"/>
               </group>
             </page>
           </notebook>

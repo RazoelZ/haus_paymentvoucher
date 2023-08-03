@@ -29,7 +29,9 @@ class HausPaymentVoucher(models.Model):
     deptcode = fields.Char(String="Dept. Code")
     amount = fields.Char(String="Amount")
     amount_alphabet = fields.Char(String="Amount Alphabet")
-    purpose = fields.Char(String="Purpose")
+
+
+    # purpose = fields.Char(String="Purpose")
     requested = fields.Char(String="Requested")
     payment = fields.Selection([
         ('pettycash', 'Petty Cash'),
@@ -50,3 +52,19 @@ class HausPaymentVoucher(models.Model):
         ('fakturpajak', 'No. Faktur Pajak'),
         ('purchaseorder', 'No. Purchase Order')
     ], string="Receipt")
+
+    # Signature Field
+    requested_signature = fields.Binary(string='Requested Signature', widget='sign')
+    requested_name = fields.Char(String="Requested By")
+    approved_signature = fields.Binary(string='Approved Signature', widget='sign')
+    approved_name = fields.Char(String="Approveed By")
+    paid_signature = fields.Binary(string='Paid Signature', widget='sign')
+    paid_name = fields.Char(String="Paid By")
+    received_signature = fields.Binary(string='Received Signature', widget='sign')
+    received_name = fields.Char(String="Received By")
+
+    approved_status = fields.Selection(
+    [('waiting', 'Waiting'),
+        ('ASM', 'Appilcation Support Manager'),
+        ('FD', 'Financial Dept'),
+        ('notapprove', 'Not Approved')], string="Status", default="waiting")
