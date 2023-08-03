@@ -16,13 +16,18 @@ class HausPaymentVoucher(models.Model):
     bankacc = fields.Char(String="Bank Account")
     bankacc_holder = fields.Char(String="Bank Account Holder")
     bank_name = fields.Char(String="Bank Name")
+    approved_status = fields.Selection(
+        [('waiting', 'Waiting'),
+         ('ASM', 'Appilcation Support Manager'),
+         ('FD', 'Financial Dept'),
+         ('notapprove', 'Not Approved')], string="Status", default="waiting")
 
-    @api.constrains('date', 'due_date')
+    @ api.constrains('date', 'due_date')
     def _check_end_date_greater_than_start_date(self):
         for record in self:
             if record.due_date < record.date:
-                raise ValidationError("Due Date cannot be earlier than Current Date!")
-
+                raise ValidationError(
+                    "Due Date cannot be earlier than Current Date!")
 
     # Field Bawah
     name = fields.Char(String="Name")
@@ -34,23 +39,23 @@ class HausPaymentVoucher(models.Model):
     # purpose = fields.Char(String="Purpose")
     requested = fields.Char(String="Requested")
     payment = fields.Selection([
-        ('pettycash', 'Petty Cash'),
-        ('advance', 'Advance'),
-        ('reimbursment', 'Reimbursment'),
-        ('vendor', 'Vendor'),
-        ('pajak', 'Pajak')
+        ('pettycash', 'PETTY CASH'),
+        ('advance', 'ADVANCE'),
+        ('reimbursment', 'REIMBURSMENT'),
+        ('vendor', 'VENDOR'),
+        ('pajak', 'PAJAK')
     ], string="Payment")
 
     # Field untuk pembayaran
     payment_for = fields.Char(String="Payment For")
     receipt_no = fields.Char(String="Receipt No")
     receipt = fields.Selection([
-        ('kwitansi', 'No. Kwitansi'),
-        ('invoice', 'No. Invoice'),
-        ('deliveryorder', 'No. Delivery Order'),
-        ('goodreceiptnotes', 'No. Good Receipt Notes'),
-        ('fakturpajak', 'No. Faktur Pajak'),
-        ('purchaseorder', 'No. Purchase Order')
+        ('kwitansi', 'NO. KWITANSI'),
+        ('invoice', 'NO. INVOICE'),
+        ('deliveryorder', 'NO. DELIVERY ORDER'),
+        ('goodreceiptnotes', 'NO. GOOD RECEIPT NOTES'),
+        ('fakturpajak', 'NO. FAKTUR PAJAK'),
+        ('purchaseorder', 'NO. PURCHASE ORDER')
     ], string="Receipt")
 
     # Signature Field
