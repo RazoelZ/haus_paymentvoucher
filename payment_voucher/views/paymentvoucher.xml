@@ -61,8 +61,12 @@
                 <field name="payment" string="PAYMENT" widget="radio" />
               </group>
               <group>
-                <field name="receipt" string="Payment Confirmation Receipt"/>
-                <field name="receipt_no" string="Nota" />
+                <field name="receipt_no" string="NO. KWITANSI"/>
+                <field name="invoice_no" string="NO. INVOICE"/>
+                <field name="delivery_order_no" string="NO. DELIVERY ORDER"/>
+                <field name="good_receipt_notes_no" string="NO. GOOD RECEIPT NOTES"/>
+                <field name="tax_invoice_no" string="NO. FAKTUR PAJAK"/>
+                <field name="purchase_order_no" string="NO. PURCHASE ORDER"/>
               </group>
             </group>
           <notebook>

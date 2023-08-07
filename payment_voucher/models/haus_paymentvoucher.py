@@ -47,9 +47,15 @@ class HausPaymentVoucher(models.Model):
     ], string="Payment")
 
     # Field untuk pembayaran
-    payment_for = fields.Char(String="Payment For")
-    receipt_no = fields.Char(String="Receipt No")
-    receipt = fields.Selection([
+    payment_for = fields.Char(String="PAYMENT FOR")
+    receipt_no = fields.Char(String="NO. KWITANSI")
+    invoice_no = fields.Char(String="NO INVOICE")
+    delivery_order_no = fields.Char(String="NO. DELIVERY ORDER")
+    good_receipt_notes_no = fields.Char(String="NO. GOOD RECEIPT NOTES")
+    tax_invoice_no = fields.Char(String="NO. FAKTUR PAJAK")
+    purchase_order_no = fields.Char(String="NO. PURCHASE ORDER")
+    
+    fields.Selection([
         ('kwitansi', 'NO. KWITANSI'),
         ('invoice', 'NO. INVOICE'),
         ('deliveryorder', 'NO. DELIVERY ORDER'),
