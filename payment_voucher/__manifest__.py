@@ -13,7 +13,7 @@
         'website_slides',
         'board',
         'dev_employee_master_data',
-
+        'web_digital_sign',
     ],
     'data': [
         'security/ir.model.access.csv',
