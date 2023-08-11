@@ -80,6 +80,8 @@
               <group>
                 <field name="approved_name" />
                 <field name="approved_signature" widget="signature" string="Signature" />
+                <button name="not_approved" string="Tidak disetujui" type="object"
+                  class="btn-primary" />
               </group>
             </page>
             <page string="Paid By">
